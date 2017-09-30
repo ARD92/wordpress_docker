@@ -15,7 +15,7 @@ docker run --name ard-wordpress --link ard-mysql:mysql -p 8080:80 -d wordpress
 echo "##########################################################"
 sudo docker ps
 echo "##########################################################"
-
+EOF
 
 
 

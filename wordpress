@@ -1,0 +1,20 @@
+!/bin/bash
+
+echo "Install latest Docker Engine..."
+sudo -s <<EOF
+sudo apt-get update;
+sudo apt-get install -y docker-engine;
+echo "#########################################################"
+sudo docker version
+echo "#########################################################"
+sudo docker pull mysql
+sudo docker pull wordpress
+docker run --name ard-mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+docker run --name ard-wordpress --link ard-mysql:mysql -p 8080:80 -d wordpress
+echo "##########################################################"
+sudo docker ps
+echo "##########################################################"
+
+
+
+
